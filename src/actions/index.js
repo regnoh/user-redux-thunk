@@ -23,19 +23,21 @@ export const decrement = () => {
     }
 
 }
-
+//请求中
 export const fetch_user_request = () => {
     return {
         type: FETCH_USER_REQUEST
     }
 }
-export const fetch_user = (user) => {
+//请求成功
+export const fetch_user_success = (user) => {
     return {
         type: FETCH_USER_SUCCESS,
         user
     }
 
 }
+//请求失败
 export const fetch_user_error = (error) => {
     return {
         type: FETCH_USER_ERROR,
@@ -47,10 +49,11 @@ export const add_random_user = () => {
         dispatch(fetch_user_request())
         axios.get("https://randomuser.me/api/")
             .then(res => {
-                dispatch(fetch_user(res.data.results[0]))//results是Array
+                console.dir(res)
+                dispatch(fetch_user_success(res.data.results[0]))//results是Array
             })
             .catch(error => {
-                //console.dir(error)
+                console.dir(error)
                 dispatch(fetch_user_error(error.response.data))
             })
     }
@@ -60,5 +63,10 @@ export const add_random_user = () => {
 // export const decrement = () => {
 //     return {
 //         type: DECREMENT
+//     }
+// };
+// export const increment = () => {
+//     return {
+//         type: INCREMENT
 //     }
 // };

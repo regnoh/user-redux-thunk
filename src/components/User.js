@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 //import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
 import {add_random_user} from "../actions";
+
 class User extends Component {
 
   render() {
