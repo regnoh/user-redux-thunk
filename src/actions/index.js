@@ -60,7 +60,7 @@ export const add_random_user = () => {
     // }
     return {
         type:FETCH_USER,
-        payload: axios.get("https://randomuser.me/apiz/")
+        payload: axios.get("https://randomuser.me/api/")
     }
 }
 
