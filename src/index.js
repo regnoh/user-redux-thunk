@@ -7,7 +7,8 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from "react-redux";
 import thunk from "redux-thunk"
 // Logger with default options
-import logger from 'redux-logger'
+import logger from 'redux-logger';
+import promiseMiddleware from 'redux-promise-middleware'
 
 //自定义日志中间件
 // const logger = store =>next=>action=>{//嵌套函数
@@ -24,7 +25,7 @@ const error = store =>next=>action=>{
         console.log("error"+e)//2
     }
 };
-const store = createStore(rootReducer,{},applyMiddleware(logger,error,thunk));
+const store = createStore(rootReducer,{},applyMiddleware(logger,promiseMiddleware(),error,thunk));
 
 ReactDOM.render(
     <Provider store={store}>

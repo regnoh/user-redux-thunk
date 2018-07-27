@@ -38,9 +38,9 @@ const mapStateToProps = (state) => {//state相当于store.getState(),把state转
 //    return bindActionCreators(types,dispatch) 
 //  }
 User.PropTypes = {
-  user: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired,
   error: PropTypes.string.isRequired,
-  isFetching: PropTypes.string.isRequired,
+  isFetching: PropTypes.bool.isRequired,
   add_random_user: PropTypes.func.isRequired
 }
 export default connect(mapStateToProps,{add_random_user})(User)
